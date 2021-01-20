@@ -115,3 +115,26 @@ def find_fft(signal, n_window):
 
     return 10*np.log10(abs(fft)/len(signal))
 
+def tripleSubplots(fft1, fft2, fft3, samples, freqs, fs, title1, title2, title3):
+    fig, axes = plt.subplots(1,3, figsize = (12,4))
+    size = np.arange(1,11)
+    axes[0].plot(freqs[int(fs/2):], fft1[int(fs/2):])
+    axes[0].grid(True)
+    axes[0].set_title(title1)
+    axes[0].set_xlabel('Frequency, Hz')
+    axes[0].set_ylabel('Amplitude, dB')
+    axes[1].plot(freqs[int(fs/2):], fft2[int(fs/2):])
+    axes[1].grid(True)
+    axes[1].set_title(title2)
+    axes[1].set_xlabel('Frequency, Hz')
+    axes[1].set_ylabel('Amplitude, dB')
+    axes[2].plot(freqs[int(fs/2):], fft3[int(fs/2):])
+    axes[2].grid(True)
+    axes[2].set_title(title3)
+    axes[2].set_xlabel('Frequency, Hz')
+    axes[2].set_ylabel('Amplitude, dB')
+    fig.tight_layout()
+    plt.show()
+    
+    return
+
