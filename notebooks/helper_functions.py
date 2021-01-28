@@ -117,7 +117,6 @@ def find_fft(signal, n_window):
 
     return 10*np.log10(abs(fft)/len(signal))
 
-<<<<<<< Updated upstream
 def tripleSubplots(fft1, fft2, fft3, samples, freqs, fs, title1, title2, title3):
     fig, axes = plt.subplots(1,3, figsize = (12,4))
     size = np.arange(1,11)
@@ -141,7 +140,6 @@ def tripleSubplots(fft1, fft2, fft3, samples, freqs, fs, title1, title2, title3)
     
     return
 
-=======
 # Function to calculate Power Spectral Density (PSD)
 # Uses Welch's average periodogram method
 
@@ -281,4 +279,3 @@ def calculate_evm(symbols_tx, symbols_rx):
               np.sqrt(np.mean(np.abs(symbols_tx)**2))
     
     return evm_rms*100
->>>>>>> Stashed changes
