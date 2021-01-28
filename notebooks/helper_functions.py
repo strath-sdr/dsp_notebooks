@@ -279,3 +279,52 @@ def calculate_evm(symbols_tx, symbols_rx):
               np.sqrt(np.mean(np.abs(symbols_tx)**2))
     
     return evm_rms*100
+
+
+def plot_timeseries(title, x, y, line=['continuous']):
+    """Function to plot up multiple timeseries on the same axis.
+    
+    Parameters
+    ----------
+    title : string
+        The title of the plot.
+    x : numerical array
+        An array containing the x axes of the plots.
+    y : numerical array
+        An array containing the y axes of the plots.
+    line : string array
+        An array stating the plot type for each plot.
+        (Continuous, discrete, dash)
+    """
+    plt.figure(figsize=(10,4))
+    ax = plt.gca()
+    ax.set_xlabel('Time (s)')
+    ax.set_ylabel('Amplitude')
+    ax.grid(True)
+    ax.set_ylim(-1.2, 1.2)
+    ax.set_title(title)
+
+    for i in range(len(x)):
+        if line[i] == 'continuous':
+            ax.plot(x[i],y[i])
+        elif line[i] == 'discrete':
+            ax.stem(x[i], y[i], basefmt='blue', linefmt='red', markerfmt='C3o')
+        elif line[i] == 'dash':
+            ax.plot(x[i],y[i],'green',linestyle='--',linewidth = 2.5)
+    
+    plt.show()
+
+def plot_response(fs, w, h, title, xlim=None):
+    """Utility function to plot response functions
+    """
+    if xlim == None:
+        xlim = fs/2
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(0.5*fs*w/np.pi, 20*np.log10(abs(h)))
+    ax.set_ylim(-60, 20)
+    ax.set_xlim(0, xlim)
+    ax.grid(True)
+    ax.set_xlabel('Frequency (Hz)')
+    ax.set_ylabel('Gain (dB)')
+    ax.set_title(title)
