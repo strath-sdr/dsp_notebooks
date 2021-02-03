@@ -328,3 +328,47 @@ def plot_response(fs, w, h, title, xlim=None):
     ax.set_xlabel('Frequency (Hz)')
     ax.set_ylabel('Gain (dB)')
     ax.set_title(title)
+    
+def plot_fft(freqs, fft_signal, fs, title, label=None):
+    plt.figure(figsize=(10,4))
+    ax = plt.gca()
+    for i in range(len(freqs)):
+        if label != None:
+            ax.plot(freqs[i][int(len(freqs[i])/2):], 
+                    fft_signal[i][int(len(freqs[i])/2):],
+                    label=label[i])
+        else:
+            ax.plot(freqs[i][int(len(freqs[i])/2):], 
+                    fft_signal[i][int(len(freqs[i])/2):])
+        
+    plt.axvline(x = fs, color = 'g', linestyle='--', label='fs')
+    plt.axvline(x = fs/2, color = 'r', linestyle='--', label='fs/2')
+    ax.grid(True)
+    ax.set_title(title)
+    ax.set_xlabel('Frequency, Hz')
+    ax.set_ylabel('Amplitude, dB')
+    ax.set_xlim(0, 3000)
+    ax.legend()
+    plt.show()
+    
+def plot_fft(freqs, fft_signal, fs, title, label=None):
+    plt.figure(figsize=(10,4))
+    ax = plt.gca()
+    for i in range(len(freqs)):
+        if label != None:
+            ax.plot(freqs[i][int(len(freqs[i])/2):], 
+                    fft_signal[i][int(len(freqs[i])/2):],
+                    label=label[i])
+        else:
+            ax.plot(freqs[i][int(len(freqs[i])/2):], 
+                    fft_signal[i][int(len(freqs[i])/2):])
+        
+    plt.axvline(x = fs, color = 'g', linestyle='--', label='fs')
+    plt.axvline(x = fs/2, color = 'r', linestyle='--', label='fs/2')
+    ax.grid(True)
+    ax.set_title(title)
+    ax.set_xlabel('Frequency, Hz')
+    ax.set_ylabel('Amplitude, dB')
+    ax.set_xlim(0, 3000)
+    ax.legend()
+    plt.show()
