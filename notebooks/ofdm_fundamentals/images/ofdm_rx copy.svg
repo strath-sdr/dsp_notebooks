@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 603.92 66.67" style="enable-background:new 0 0 603.92 66.67;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st1{fill:none;}
+	.st2{font-family:'GillSansMT';}
+	.st3{font-size:13px;}
+	.st4{fill:none;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g>
+	<rect x="87.02" y="11.44" class="st0" width="98.04" height="43.79"/>
+	<rect x="99.31" y="19.93" class="st1" width="73.44" height="26.8"/>
+	<text transform="matrix(1 0 0 1 99.3147 28.8006)"><tspan x="0" y="0" class="st2 st3">Cyclic Prefix </tspan><tspan x="0" y="15.6" class="st2 st3">Removal</tspan></text>
+</g>
+<g>
+	<rect x="247.8" y="11.76" class="st0" width="98.04" height="43.79"/>
+	<rect x="247.8" y="11.76" class="st0" width="98.04" height="43.79"/>
+	<rect x="287.67" y="27.12" class="st1" width="30.07" height="16.67"/>
+	<text transform="matrix(1 0 0 1 287.6694 35.9898)" class="st2 st3">FFT</text>
+</g>
+<g>
+	<rect x="403.27" y="11.76" class="st0" width="121.66" height="43.79"/>
+	<rect x="410.83" y="19.12" class="st1" width="106.54" height="32.68"/>
+	<text transform="matrix(1 0 0 1 410.8286 27.9832)"><tspan x="0" y="0" class="st2 st3">Symbol De-Mapping</tspan><tspan x="0" y="15.6" class="st2 st3">(BPSK,QPSK..)</tspan></text>
+</g>
+<g>
+	<line x1="17.65" y1="33.66" x2="84.31" y2="33.66"/>
+	<g>
+		<line class="st4" x1="17.65" y1="33.66" x2="78.28" y2="33.66"/>
+		<g>
+			<path d="M84.31,33.66c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75C77.95,30.81,81.47,32.61,84.31,33.66z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line x1="185.06" y1="33.33" x2="247.8" y2="33.33"/>
+	<g>
+		<line class="st4" x1="185.06" y1="33.33" x2="241.77" y2="33.33"/>
+		<g>
+			<path d="M247.8,33.33c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75C241.44,30.48,244.96,32.28,247.8,33.33z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line x1="524.84" y1="33.66" x2="588.89" y2="33.66"/>
+	<g>
+		<line class="st4" x1="524.84" y1="33.66" x2="582.85" y2="33.66"/>
+		<g>
+			<path d="M588.89,33.66c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75C582.53,30.81,586.05,32.61,588.89,33.66z"/>
+		</g>
+	</g>
+</g>
+<rect x="533.33" y="15.85" class="st1" width="70.59" height="14.71"/>
+<text transform="matrix(1 0 0 1 533.3327 24.7151)" class="st2 st3">Output bits</text>
+<g>
+	<line x1="345.84" y1="33.33" x2="403.27" y2="33.66"/>
+	<g>
+		<line class="st4" x1="345.84" y1="33.33" x2="397.23" y2="33.63"/>
+		<g>
+			<path d="M403.27,33.66c-2.85,1.04-6.38,2.82-8.57,4.71l1.75-4.75l-1.69-4.76C396.92,30.77,400.43,32.59,403.27,33.66z"/>
+		</g>
+	</g>
+</g>
+<rect x="2.94" y="16.83" class="st1" width="75.16" height="12.75"/>
+<text transform="matrix(1 0 0 1 2.9413 25.6959)" class="st2 st3">OFDM signal</text>
+</svg>
