@@ -373,3 +373,69 @@ def plot_fft(freqs, fft_signal, fs, title, label=None):
     ax.set_xlim(0, 3000)
     ax.legend()
     plt.show()
+    
+    
+### Machine learning helpers ###
+
+# Function to generate BPSK
+def generate_bpsk(num_symbols, noise=50):
+    bits = np.random.randint(0,2,num_symbols)
+    bpsk_scheme = [1+0j, -1+0j]
+    bpsk_symbols = np.array([bpsk_scheme[i] for i in bits])
+    
+    bpsk_symbols = awgn(bpsk_symbols, noise)
+    
+    return bpsk_symbols
+
+# Function to generate QPSK
+def generate_qpsk(num_symbols, noise=50):
+    qpsk_scheme= [1+1j, 1-1j, -1+1j, -1-1j]
+    ints = np.random.randint(0,4,num_symbols)
+    qpsk_symbols = np.array([qpsk_scheme[i] for i in ints])/np.sqrt(2)
+
+    qpsk_symbols = awgn(qpsk_symbols, noise)
+    
+    return qpsk_symbols
+
+# Function to generate QAM
+def generate_qam(num_symbols, noise=50):
+    qam_scheme = [-3-3j, -3-1j, -3+3j, -3+1j,  \
+                  -1-3j, -1-1j, -1+3j, -1+1j,  \
+                   3-3j,  3-1j,  3+3j,  3+1j,  \
+                   1-3j,  1-1j,  1+3j,  1+1j]
+    ints = np.random.randint(0,16,num_symbols)
+    qam_symbols = np.array([qam_scheme[i] for i in ints])
+    qam_symbols = qam_symbols/np.mean(np.abs(qam_scheme))
+    
+    qam_symbols = awgn(qam_symbols, noise)
+    
+    return qam_symbols
+
+# Function to generate 4-ASK
+def generate_ask4(num_symbols, noise=50):
+    ask4_scheme = [3+0j, 1+0j, -1+0j, -3+0j]
+    ints = np.random.randint(0,4,num_symbols)
+    ask4_symbols = np.array([ask4_scheme[i] for i in ints])
+    ask4_symbols = ask4_symbols/np.mean(np.abs(ask4_scheme))
+    
+    ask4_symbols = awgn(ask4_symbols, noise)
+    
+    return ask4_symbols
+
+def calculate_statistics(x):
+    
+    # Extract instantaneous amplitude and phase
+    inst_a = np.abs(x) 
+    inst_p = np.angle(x)
+
+    # Amplitude statistics
+    m2_a = np.mean((inst_a-np.mean(inst_a))**2) # variance of amplitude
+    m3_a = np.mean((inst_a-np.mean(inst_a))**3)/(np.mean((inst_a-np.mean(inst_a))**2)**(3/2)) # skewness of amplitude
+    m4_a = np.mean((inst_a-np.mean(inst_a))**4)/(np.mean((inst_a-np.mean(inst_a))**2)**(2)) # kurtosis of amplitude
+    
+    # Phase statistics
+    m2_p = np.mean((inst_p-np.mean(inst_p))**2) # variance of phase
+    m3_p = np.mean((inst_p-np.mean(inst_p))**3)/(np.mean((inst_p-np.mean(inst_p))**2)**(3/2)) # skewness of phase
+    m4_p = np.mean((inst_p-np.mean(inst_p))**4)/(np.mean((inst_p-np.mean(inst_p))**2)**(2)) # kurtosis of phase
+    
+    return  m2_a, m3_a, m4_a, m2_p, m3_p, m4_p
