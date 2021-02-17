@@ -211,13 +211,13 @@ def awgn(signal,SNR):
     n_p = s_p/(10 **(SNR/10))
     
     # Generate complex noise 
-    noise = np.random.normal(0,np.sqrt(n_p/2),len(signal)) + \
-        np.random.normal(0,np.sqrt(n_p/2),len(signal))
+    noise = np.sqrt(n_p/2)*(np.random.randn(len(signal)) + \
+                                    np.random.randn(len(signal))*1j)
     
     # Add signal and noise 
     signal_noisy = signal + noise 
     
-    return signal_noisy   
+    return signal_noisy    
 	
 # Function to generate a block of BPSK, QPSK or 16-QAM symbols
 def symbol_gen(nsym,mod_scheme):
