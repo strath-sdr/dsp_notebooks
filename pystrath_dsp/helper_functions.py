@@ -282,7 +282,9 @@ def calculate_evm(symbols_tx, symbols_rx):
     return evm_rms*100
 
 
-def plot_timeseries(title, x, y, line=['continuous']):
+### Sampling and Quantisation helpers
+
+def plot_timeseries(title, x, y, line=['continuous'], xlim=None):
     """Function to plot up multiple timeseries on the same axis.
     
     Parameters
@@ -304,6 +306,8 @@ def plot_timeseries(title, x, y, line=['continuous']):
     ax.grid(True)
     ax.set_ylim(-1.2, 1.2)
     ax.set_title(title)
+    if xlim:
+        ax.set_xlim(0, xlim)
 
     for i in range(len(x)):
         if line[i] == 'continuous':
@@ -313,7 +317,7 @@ def plot_timeseries(title, x, y, line=['continuous']):
         elif line[i] == 'dash':
             ax.plot(x[i],y[i],'green',linestyle='--',linewidth = 2.5)
     
-    plt.show()
+    return ax
 
 def plot_response(fs, w, h, title, xlim=None):
     """Utility function to plot response functions
@@ -350,29 +354,23 @@ def plot_fft(freqs, fft_signal, fs, title, label=None):
     ax.set_ylabel('Amplitude, dB')
     ax.set_xlim(0, 3000)
     ax.legend()
-    plt.show()
-    
-def plot_fft(freqs, fft_signal, fs, title, label=None):
-    plt.figure(figsize=(10,4))
-    ax = plt.gca()
-    for i in range(len(freqs)):
-        if label != None:
-            ax.plot(freqs[i][int(len(freqs[i])/2):], 
-                    fft_signal[i][int(len(freqs[i])/2):],
-                    label=label[i])
-        else:
-            ax.plot(freqs[i][int(len(freqs[i])/2):], 
-                    fft_signal[i][int(len(freqs[i])/2):])
+    return ax
         
-    plt.axvline(x = fs, color = 'g', linestyle='--', label='fs')
-    plt.axvline(x = fs/2, color = 'r', linestyle='--', label='fs/2')
-    ax.grid(True)
-    ax.set_title(title)
-    ax.set_xlabel('Frequency, Hz')
-    ax.set_ylabel('Amplitude, dB')
-    ax.set_xlim(0, 3000)
-    ax.legend()
-    plt.show()
+def subplot(axes, layout):
+    size_i = layout[0]
+    size_j = layout[1]
+    k = 0
+    fig,ax = plt.subplots(size_i,size_j, figsize = (12,6))
+    for i in range(size_i):
+        for j in range(size_j):
+            ax[i][j].set_title(axes[k].get_title())
+            ax[i][j].set_xlabel(axes[k].get_xlabel())
+            ax[i][j].set_ylabel(axes[k].get_ylabel())
+            ax[i][j].set_xlim(axes[k].get_xlim())
+            line = axes[k].lines[0].get_data()
+            ax[i][j].plot(line[0], line[1])
+            k = k + 1
+    fig.tight_layout() 
     
     
 ### Machine learning helpers ###
