@@ -7,8 +7,8 @@ from setuptools import find_packages, setup
 # global variables
 repo_notebook_folder = f'notebooks'
 board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
-package_name = 'pystrath_sdr'
-pip_name = 'pystrath-sdr'
+package_name = 'pystrath_dsp'
+pip_name = 'pystrath-dsp'
 data_files = []
 
 # check whether board is supported
