@@ -439,3 +439,10 @@ def calculate_statistics(x):
     m4_p = np.mean((inst_p-np.mean(inst_p))**4)/(np.mean((inst_p-np.mean(inst_p))**2)**(2)) # kurtosis of phase
     
     return  m2_a, m3_a, m4_a, m2_p, m3_p, m4_p
+
+def to_onehot(labels, num_classes):
+    num_labels = len(labels)
+    labels_onehot = np.zeros((num_labels, num_classes))
+    labels_onehot[np.arange(num_labels),labels] = 1
+    
+    return labels_onehot
