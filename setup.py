@@ -21,6 +21,8 @@ def check_env():
             "Use `export PYNQ_JUPYTER_NOTEBOOKS=<desired-notebook-path>` "
             "to get the notebooks.",
             UserWarning)
+        # Install to current working directory if not on PYNQ
+        notebooks_dir = os.getcwd()
     else:
         notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
 
