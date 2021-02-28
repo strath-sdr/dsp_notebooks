@@ -446,10 +446,3 @@ def to_onehot(labels, num_classes):
     labels_onehot[np.arange(num_labels),labels] = 1
     
     return labels_onehot
-
-def to_onehot(labels, num_classes):
-    num_labels = len(labels)
-    labels_onehot = np.zeros((num_labels, num_classes))
-    labels_onehot[np.arange(num_labels),labels] = 1
-    
-    return labels_onehot
