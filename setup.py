@@ -8,17 +8,25 @@ import warnings
 
 # global variables
 repo_notebook_folder = f'notebooks'
-board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
 package_name = 'pystrath_dsp'
 pip_name = 'pystrath-dsp'
 data_files = []
 
-# check whether board is supported
 # Get environment variables
 def check_env():
-    if not os.path.isdir(board_notebooks_dir):
-        raise ValueError(
-            "Directory {} does not exist.".format(board_notebooks_dir))
+
+    notebooks_dir = None
+    if 'PYNQ_JUPYTER_NOTEBOOKS' not in os.environ:
+        warnings.warn(
+            "Use `export PYNQ_JUPYTER_NOTEBOOKS=<desired-notebook-path>` "
+            "to get the notebooks.",
+            UserWarning)
+        # Install to current working directory if not on PYNQ
+        notebooks_dir = os.getcwd()
+    else:
+        notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
+
+    return notebooks_dir
 
     notebooks_dir = None
     if 'PYNQ_JUPYTER_NOTEBOOKS' not in os.environ:
