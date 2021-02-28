@@ -11,14 +11,21 @@ package_name = 'pystrath_dsp'
 pip_name = 'pystrath-dsp'
 data_files = []
 
-# check whether board is supported
+# Get environment variables
 def check_env():
-    if not os.path.isdir(board_notebooks_dir):
-        raise ValueError(
-            "Directory {} does not exist.".format(board_notebooks_dir))
+
+    notebooks_dir = None
+    if 'PYNQ_JUPYTER_NOTEBOOKS' not in os.environ:
+        # Install to current working directory if not on PYNQ
+        notebooks_dir = os.getcwd()
+    else:
+        notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
+
+    return notebooks_dir
 
 # copy notebooks to jupyter home
 def copy_notebooks():
+    board_notebooks_dir = check_env()
     src_nb_dir = os.path.join(repo_notebook_folder)
     dst_nb_dir = os.path.join(board_notebooks_dir, 'dsp-notebooks')
     if os.path.exists(dst_nb_dir):
