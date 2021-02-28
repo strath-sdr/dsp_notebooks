@@ -6,9 +6,7 @@ This repository contains a collection of educational Jupyter Notebooks on DSP (D
 
 <img src="./nb_automatic_mod_class.png" width="25%" align="left" />
 <img src="./nb_digital_filtering.png" width="25%" align="left" />
-<img src="./nb_modulation_demodulation.png" width="25%" align="left" />
-<img src="./nb_ofdm_fundamentals.png" width="25%" />
+<img src="./nb_modulation_demodulation.png" width="25%" />
 <img src="./nb_pulse_shaping.png" width="25%" align="left" />
 <img src="./nb_sampling_aliasing.png" width="25%" align="left" />
-<img src="./nb_sampling_quantisation.png" width="25%" align="left" />
 <img src="./nb_spectral_analysis.png" width="25%"/>
