@@ -50,7 +50,7 @@ def copy_notebooks():
 copy_notebooks()
 setup(
     name=package_name,
-    version='0.1',
+    version='0.1.1',
     install_requires=[
     ],
     author="strath-sdr",
