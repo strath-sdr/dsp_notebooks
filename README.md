@@ -13,7 +13,7 @@ This repository contains a collection of educational Jupyter Notebooks on DSP (D
 
 ## PYNQ Quick Start
 The DSP notebooks can be installed on to your development board by running a simple line of code in a command terminal. **However, you will need to connect your board to the internet.** Follow the instructions below to install the notebooks now.
-* Power on your development board with an SD Card containing a fresh PYNQ v2.6 image.
+* Power on your development board with an SD Card containing a fresh PYNQ v2.7 image.
 * Navigate to Jupyter Labs by opening a browser (preferably Chrome) and connecting to `http://<board_ip_address>:9090/lab`.
 * We need to open a terminal in Jupyter Lab. Firstly, open a launcher window as shown in the figure below:
 
