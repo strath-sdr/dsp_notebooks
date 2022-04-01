@@ -33,4 +33,4 @@ The DSP notebooks can be installed on to your development board by running a sim
 pip3 install git+https://github.com/strath-sdr/dsp_notebooks
 ```
 
-Once installation has complete you will find the DSP notebooks in the Jupyter workspace directory. The folder will be named 'dsp-notebooks'.
+Once installation has complete you will find the DSP notebooks in the Jupyter workspace directory 'rfsoc-studio/dsp-notebooks'. The folder will be named 'dsp-notebooks'.
