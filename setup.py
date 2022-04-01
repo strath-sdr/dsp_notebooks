@@ -43,14 +43,14 @@ def check_env():
 def copy_notebooks():
     board_notebooks_dir = check_env()
     src_nb_dir = os.path.join(repo_notebook_folder)
-    dst_nb_dir = os.path.join(board_notebooks_dir, 'dsp-notebooks')
+    dst_nb_dir = os.path.join(board_notebooks_dir, 'rfsoc-studio', 'dsp-notebooks')
     if os.path.exists(dst_nb_dir):
         shutil.rmtree(dst_nb_dir)
     copy_tree(src_nb_dir, dst_nb_dir)
 copy_notebooks()
 setup(
     name=package_name,
-    version='0.1.2',
+    version='0.1.3',
     install_requires=[
     ],
     author="strath-sdr",
