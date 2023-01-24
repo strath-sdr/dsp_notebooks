@@ -1,5 +1,7 @@
 <img src="notebooks/strathclyde_banner.png" width="100%">
 
+This repository has now been archived. See the new [RFSoC-Book](https://github.com/strath-sdr/RFSoC-Book/) repository that contains the same DSP Notebooks and more!
+
 <table border="0" align="center">
     <tr border="0">
         <td align="center" width="50%" border="0">
